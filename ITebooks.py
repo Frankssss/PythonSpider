@@ -31,9 +31,11 @@ def get_book_address(book_link):
 
 def book_download(address):
     title = address.rsplit('/', 1)[1]
+    print('%s 开始下载' % title)
     r = requests.get(address, headers=headers)
     with open('d:\\data\\ebooks\\%s' % title, 'wb') as f:
         f.write(r.content)
+    print('%s 下载结束' % title)
 
 
 def main(book_link):
